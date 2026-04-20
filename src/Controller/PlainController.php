@@ -15,7 +15,7 @@ final class PlainController extends AbstractController
         return $this->render('plain/index.html.twig');
     }
 
-    #[Route('/plain-slow', name: 'app_plain_slow')]
+    #[Route('/plain/slow', name: 'app_plain_slow')]
     public function slow(SessionInterface $session): Response
     {
         $count = $session->get('plain-call-count', 0) + 1;

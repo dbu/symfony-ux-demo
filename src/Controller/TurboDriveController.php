@@ -17,11 +17,11 @@ final class TurboDriveController extends AbstractController
         ]);
     }
 
-    #[Route('/drive-slow', name: 'app_drive_slow')]
+    #[Route('/drive/slow', name: 'app_drive_slow')]
     public function slow(SessionInterface $session): Response
     {
-        $count = $session->get('turbo-call-count', 0) + 1;
-        $session->set('turbo-call-count', $count);
+        $count = $session->get('drive-call-count', 0) + 1;
+        $session->set('drive-call-count', $count);
 
         sleep(3);
 
