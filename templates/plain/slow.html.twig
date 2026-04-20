@@ -1,0 +1,12 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Plain Page{% endblock %}
+
+{% block body %}
+<div>
+    <h1>Plain Symfony</h1>
+
+    <p>You have visited this page <strong>{{ callCount }} times</strong> in the current session.</p>
+    <p>Go back to the <a href="{{ path('app_plain') }}">entry page</a> to see the effect again.</p>
+</div>
+{% endblock %}

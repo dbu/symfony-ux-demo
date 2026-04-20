@@ -1,0 +1,13 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Plain Page{% endblock %}
+
+{% block body %}
+<div>
+    <h1>Plain Symfony</h1>
+
+    <p>Navigate to the <a href="{{ path('app_plain_slow') }}">slow</a> page to see the experience without Turbo Drive.</p>
+
+    <p>There is no visual feedback. Just wait for about 3 seconds for the page to be replaced.</p>
+</div>
+{% endblock %}

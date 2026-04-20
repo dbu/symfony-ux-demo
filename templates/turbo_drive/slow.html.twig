@@ -1,0 +1,13 @@
+{% extends 'base-turbo.html.twig' %}
+
+{% block title %}Turbo Drive{% endblock %}
+
+{% block body %}
+<div>
+    <h1>Symfony with Turbo Drive</h1>
+
+    <p>You have visited this page <strong>{{ callCount }} times</strong> in the current session.</p>
+    <p>On repeated visits, notice how the page loads immediately from the cache and is then updated with the new value once the current version is returned by the server.</p>
+    <p>Go back to the <a href="{{ path('app_drive') }}">entry page</a> to see the effect again.</p>
+</div>
+{% endblock %}

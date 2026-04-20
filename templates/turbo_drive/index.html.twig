@@ -1,0 +1,13 @@
+{% extends 'base-turbo.html.twig' %}
+
+{% block title %}Turbo Drive{% endblock %}
+
+{% block body %}
+<div>
+    <h1>Symfony with Turbo Drive</h1>
+
+    <p>Navigate to the <a href="{{ path('app_drive_slow') }}">slow</a> page to see the experience when Turbo Drive is active.</p>
+
+    <p>See the progress bar that is shown at the top. It disappears after about 3 seconds when the new page is loaded in the background.</p>
+</div>
+{% endblock %}

@@ -1,0 +1,5 @@
+.turbo-progress-bar {
+    height: 8px;
+    background-color: green;
+    top: var(--header-height);
+}
