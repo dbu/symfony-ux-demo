@@ -1,0 +1,32 @@
+header {
+    width: 100%;
+    height: auto;
+    background: var(--accent-color);
+    display: flex;
+    justify-content: center;
+    padding: 1rem;
+    margin-bottom: 4rem;
+}
+
+div.navigation {
+    width: min(100%, var(--content-width));
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+    gap: 0.75rem;
+
+    span {
+        background: var(--surface);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        white-space: nowrap;
+        border: solid var(--border-color) 1px;
+        border-radius: 0.75rem;
+    }
+}
+
+@media (max-width: 720px) {
+    div.navigation {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
