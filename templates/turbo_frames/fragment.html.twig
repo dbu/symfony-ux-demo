@@ -1,0 +1,7 @@
+<turbo-frame id="variable-content">
+    <p>You have visited this page <strong>{{ callCount }} times</strong> in the current session.</p>
+
+    <p>Note how the textarea did not change. You can <a href="{{ path('app_frames_target') }}">update</a> to increase the count by loading just the frame.</p>
+
+    <p>Go back to the <a href="{{ path('app_frames') }}">entry page</a> to see the effect again.</p>
+</turbo-frame>

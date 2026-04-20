@@ -1,0 +1,16 @@
+{% extends 'base-turbo.html.twig' %}
+
+{% block title %}Turbo Frames{% endblock %}
+
+{% block body %}
+<div>
+    <div>
+        <h1>Symfony with Turbo Frames</h1>
+
+        <label for="area">Note:</label>
+        <textarea id="area" style="width: 100%; height: 4rem;">Write something here to see that this element is not changed.</textarea>
+
+        {% include 'turbo_frames/fragment.html.twig' %}
+    </div>
+</div>
+{% endblock %}
