@@ -1,0 +1,25 @@
+{% extends 'base-turbo.html.twig' %}
+
+{% block title %}Server Sent Events{% endblock %}
+
+{% block body %}
+<div {{ stimulus_controller('subscribe-messages', { url: mercure(topic) }) }}>
+    <h1>Symfony with Server Sent Events</h1>
+
+    <p>Type something in the input below and see it added to the end of the message list. If other people send to the same server, or if you open other browser windows and send messages from there, the messages appear in every browser.</p>
+
+    <form
+        method="post"
+        {{ stimulus_controller('reset-form') }}
+        {{ stimulus_action('reset-form', 'reset', 'turbo:submit-end') }}
+    >
+        <label for="message">Message</label>
+        <input id="message" name="message" type="text" required autofocus>
+        <button type="submit">Send</button>
+    </form>
+
+    <section id="messages" {{ stimulus_target('subscribe-messages', 'messages') }}></section>
+
+    <p>This page uses a stimulus controller that handles "raw" server-sent events to update the page.</p>
+</div>
+{% endblock %}

@@ -1,5 +1,6 @@
 #messages {
     margin-top: 1rem;
+    margin-bottom: 1rem;
     max-height: 50vh;
     overflow-y: auto;
     border: solid 1px var(--accent-color);
