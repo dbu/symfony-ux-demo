@@ -16,7 +16,10 @@ with [FrankenPHP](https://frankenphp.dev) and [Caddy](https://caddyserver.com/).
 
 ## Features
 
-* To come
+* Demonstrate the effect of Turbo Drive (with an artificially slowed controller to see the difference);
+* Demo for Turbo Frames;
+* Demo for Turbo Streams;
+* Demo for using raw SSE with Stimulus.
 
 ## Docs from upstream
 
