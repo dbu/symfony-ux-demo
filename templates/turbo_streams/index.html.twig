@@ -1,0 +1,24 @@
+{% extends 'base-turbo.html.twig' %}
+
+{% block title %}Turbo Streams{% endblock %}
+
+{% block body %}
+<div {{ turbo_stream_listen(topic) }}>
+    <section id="last-message">No messages received yet</section>
+    <h1>Symfony with Turbo Streams</h1>
+
+    <p>Type something in the input below and see it added to the top of the message list. If other people send to the same server, or if you open other browser windows and send messages from there, the messages appear in every browser.</p>
+
+    <form
+        method="post"
+        {{ stimulus_controller('reset-form') }}
+        {{ stimulus_action('reset-form', 'reset', 'turbo:submit-end') }}
+    >
+        <label for="message">Message</label>
+        <input id="message" name="message" type="text" required autofocus>
+        <button type="submit">Send</button>
+    </form>
+
+    <section id="messages"></section>
+</div>
+{% endblock %}

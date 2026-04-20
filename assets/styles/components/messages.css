@@ -1,0 +1,18 @@
+#messages {
+    margin-top: 1rem;
+    max-height: 50vh;
+    overflow-y: auto;
+    border: solid 1px var(--accent-color);
+    padding: 0 0.5rem 0.5rem 0.5rem;
+
+    article {
+        border: solid 1px var(--border-color);
+        margin-top: 0.5rem;
+        padding-left: 0.5rem;
+        padding-bottom: 0.25rem;
+        span.label {
+            font-size: 0.8em;
+            color: var(--text-muted);
+        }
+    }
+}
