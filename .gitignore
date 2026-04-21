@@ -1,4 +1,6 @@
 /config/reference.php
+deploy.mk
+extract/
 
 ###> symfony/framework-bundle ###
 /.env.local

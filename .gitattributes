@@ -15,3 +15,20 @@ composer.lock text eol=lf merge=ours
 
 *.ico binary
 *.png binary
+
+tests/ export-ignore
+var/ export-ignore
+vendors/ export-ignore
+.editorconfig export-ignore
+.gitattributes export-ignore
+.github/ export-ignore
+.gitignore export-ignore
+.env.local export-ignore
+.env.local.php export-ignore
+.env.*.local export-ignore
+compose.override.yaml export-ignore
+config/secrets/prod/prod.decrypt.private.php export-ignore
+public/bundles/ export-ignore
+public/assets/ export-ignore
+assets/vendor/ export-ignore
+deploy.mk export-ignore

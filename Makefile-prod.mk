@@ -1,5 +1,5 @@
 # Executables (local)
-DOCKER_COMP = docker compose
+DOCKER_COMP = docker compose -f compose.yaml -f compose.prod.yaml
 
 # Docker containers
 PHP_CONT = $(DOCKER_COMP) exec php
@@ -11,17 +11,17 @@ SYMFONY  = $(PHP) bin/console
 
 # Misc
 .DEFAULT_GOAL = help
-.PHONY        : help build rebuild up start down logs shell composer vendor sf cc test
+.PHONY        : help rebuild up start down logs shell composer vendor sf cc test
 
-## —— 🎵 🐳 The Symfony Docker Makefile 🐳 🎵 ——————————————————————————————————
+## ---- The Symfony Docker Makefile --------------------------------------------
 help: ## Outputs this help screen
 	@grep -E '(^[a-zA-Z0-9\./_-]+:.*?##.*$$)|(^##)' $(MAKEFILE_LIST) | awk 'BEGIN {FS = ":.*?## "}{printf "\033[32m%-30s\033[0m %s\n", $$1, $$2}' | sed -e 's/\[32m##/[33m/'
 
-## —— Docker 🐳 ————————————————————————————————————————————————————————————————
+## -- Docker -------------------------------------------------------------------
 build: ## Builds the Docker images
 	@$(DOCKER_COMP) build
 
-rebuild: ## Rebuilds the Docker images without cache
+rebuild: ## Builds the Docker images without cache
 	@$(DOCKER_COMP) build --pull --no-cache
 
 up: ## Start the docker hub in detached mode (no logs)
@@ -36,12 +36,7 @@ logs: ## Show live logs
 shell: ## Connect to the FrankenPHP container
 	@$(PHP_CONT) bash
 
-test: ## Start tests with phpunit, pass the parameter "c=" to add options to phpunit, example: make test c="--group e2e --stop-on-failure"
-	@$(eval c ?=)
-	@$(DOCKER_COMP) exec -e APP_ENV=test php bin/phpunit $(c)
-
-
-## —— Composer 🧙 ——————————————————————————————————————————————————————————————
+## -- Composer ----------------------------------------------------------------
 composer: ## Run composer, pass the parameter "c=" to run a given command, example: make composer c='req symfony/orm-pack'
 	@$(eval c ?=)
 	@$(COMPOSER) $(c)
@@ -50,12 +45,10 @@ vendor: ## Install vendors according to the current composer.lock file
 vendor: c=install --prefer-dist --no-dev --no-progress --no-scripts --no-interaction
 vendor: composer
 
-## —— Symfony 🎵 ———————————————————————————————————————————————————————————————
+## -- Symfony ------------------------------------------------------------------
 sf: ## List all Symfony commands or pass the parameter "c=" to run a given command, example: make sf c=about
 	@$(eval c ?=)
 	@$(SYMFONY) $(c)
 
 cc: c=c:c ## Clear the cache
 cc: sf
-
--include deploy.mk

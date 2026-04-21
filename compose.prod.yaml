@@ -6,7 +6,16 @@ services:
     build:
       context: .
       target: frankenphp_prod
+      args:
+        SERVER_NAME: ${SERVER_NAME}
+        APP_SECRET: ${APP_SECRET}
+        MERCURE_URL: ${CADDY_MERCURE_URL:-http://php/.well-known/mercure}
+        MERCURE_PUBLIC_URL: ${CADDY_MERCURE_PUBLIC_URL:-https://${SERVER_NAME}/.well-known/mercure}
+        MERCURE_JWT_SECRET: ${CADDY_MERCURE_JWT_SECRET}
     environment:
+      SERVER_NAME: ${SERVER_NAME}, php:80
+      MERCURE_PUBLIC_URL: ${CADDY_MERCURE_PUBLIC_URL:-https://${SERVER_NAME}/.well-known/mercure}
       APP_SECRET: ${APP_SECRET}
+      MERCURE_JWT_SECRET: ${CADDY_MERCURE_JWT_SECRET}
       MERCURE_PUBLISHER_JWT_KEY: ${CADDY_MERCURE_JWT_SECRET}
       MERCURE_SUBSCRIBER_JWT_KEY: ${CADDY_MERCURE_JWT_SECRET}
