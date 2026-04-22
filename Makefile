@@ -59,3 +59,4 @@ cc: c=c:c ## Clear the cache
 cc: sf
 
 -include deploy.mk
+-include loadtest.mk

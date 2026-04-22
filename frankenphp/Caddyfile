@@ -5,6 +5,9 @@
 
 	frankenphp {
 		{$FRANKENPHP_CONFIG}
+
+		# each thread has a low memory footprint
+		max_threads 40
 	}
 }
 
