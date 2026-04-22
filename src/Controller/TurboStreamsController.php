@@ -18,7 +18,7 @@ final class TurboStreamsController extends AbstractController
     public function index(Request $request, HubInterface $hub): Response
     {
         if ($request->isMethod('POST')) {
-            $message = trim((string) $request->request->get('message', ''));
+            $message = substr(trim((string) $request->request->get('message', '')), 0, 255);
 
             if ('' !== $message) {
                 $html = $this->renderView('turbo_streams/_message.html.twig', [
