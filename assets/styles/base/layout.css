@@ -80,4 +80,10 @@ a:hover {
     :root {
         --header-height: 120px;
     }
+
+    body > div {
+        width: min(100%, calc(var(--content-width) - 1rem));
+        padding: 1.25rem;
+        border-radius: 1rem;
+    }
 }
