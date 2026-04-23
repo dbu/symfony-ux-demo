@@ -33,7 +33,7 @@ final class TurboFramesController extends AbstractController
             ]);
         }
 
-        return $this->render('turbo_frames/target.html.twig', [
+        return $this->render('turbo_frames/index.html.twig', [
             'callCount' => $count,
         ]);
     }
